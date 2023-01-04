@@ -1,0 +1,84 @@
+body {
+  font-family: "Opens-sans", sans-serif;
+  font-size: 20px;
+  background: #051D3B;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box:not(.devcast) {
+  background: url(/images/pixel.png), linear-gradient(to right, rgba(0, 126, 174, .85), rgba(26, 193, 187, .85));
+  background-repeat: repeat;
+  background-size: 1.5px;
+  position: absolute;
+
+  border-radius: 10px;
+  height: 350px;
+  width: 400px;
+}
+.box {
+  margin: auto;
+}
+
+h1, h2{
+  display: flex;
+  justify-content: center;
+
+  color: #fbfbfb;
+  width: 100%;
+  margin: 20px auto;
+}
+
+h2 {
+  font-size: 18px;
+  color:#fbfbfb;
+}
+
+.timer {
+  width: 200px;
+  height: 90px;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color:#fbfbfb;
+  font-weight: bold;
+  font-size: 60px;
+
+  border: 1px solid #fbfbfb;
+  border-radius:10px;
+}
+
+.minutos, .segundos {
+  border: 1px solid #fbfbfb;
+  border-radius: 10px;
+  margin: 5px;
+  padding: 10px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-evenly;
+ 
+  margin-top: 40px;
+}
+
+#start, #stop, #reset {
+  height: 40px;
+  width: 60px;
+
+  background-color: #fbfbfb;
+  color:#051D3B;
+  font-size: 15px;
+  font-weight: bold;
+
+  border: 1px solid #fbfbfb;
+  border-radius: 5px;
+}
