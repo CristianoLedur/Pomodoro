@@ -14,7 +14,7 @@ window.onload = function () {
   
   buttonStart.onclick = function () { 
     clearInterval(Interval);
-    Interval = setInterval(iniciarPomodoro, 5);
+    Interval = setInterval(iniciarPomodoro, 1000);
     borda[0].style.borderColor = "red";
   }
 
