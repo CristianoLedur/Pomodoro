@@ -9,13 +9,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&amp;family=Open+Sans:wght@400;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="js/main.js" defer></script>
+  <script src="js/timer.js" defer></script>
 </head>
 <body>
   <div class="box">
     <h1 class="title">Pomodoro</h1>
-    <h2 class="acao">Tempo restante</h2>
+    <h2 class="acao">Foco / Descanso</h2>
+    <div class="timer-opcoes">
+      <button class="button-timer" onclick="tempo1()">25 / 5</button>
+      <button class="button-timer" onclick="tempo2()">50 / 10</button>
+    </div>
+
     <div class="timer">
-      <span id="minutos">25</span>
+      <span id="minutos">00</span>
       <span>:</span>
       <span id="segundos">00</span>
     </div>

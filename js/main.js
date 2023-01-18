@@ -1,66 +1,65 @@
-window.onload = function () {
+var appendSegundos = document.getElementById("segundos");
+var appendMinutos = document.getElementById("minutos");
+var buttonStart = document.getElementById('start');
+var buttonStop = document.getElementById('stop');
+var buttonReset = document.getElementById('reset');
+var borda = document.getElementsByClassName("timer");
+var Interval;
 
-  var segundos = 59;
-  var minutos = 24;
+buttonStart.onclick = function () { 
+  clearInterval(Interval);
+  Interval = setInterval(iniciarPomodoro, 1000);
+  borda[0].style.borderColor = "red";
+}
 
-  var appendSegundos = document.getElementById("segundos");
-  var appendMinutos = document.getElementById("minutos");
-  var buttonStart = document.getElementById('start');
-  var buttonStop = document.getElementById('stop');
-  var buttonReset = document.getElementById('reset');
-  var borda = document.getElementsByClassName("timer");
-  var Interval;
+buttonStop.onclick = function () {
+  clearInterval(Interval);
+}
 
-  
-  buttonStart.onclick = function () { 
-    clearInterval(Interval);
-    Interval = setInterval(iniciarPomodoro, 1000);
-    borda[0].style.borderColor = "red";
-  }
+buttonReset.onclick = function reset() {
+  clearInterval(Interval);
+  segundos = "00";
+  minutos = "25";
+  appendMinutos.innerHTML = minutos;
+  appendSegundos.innerHTML = segundos;
+}
 
-  buttonStop.onclick = function () {
-    clearInterval(Interval);
-  }
+function iniciarPomodoro () {
+  var tempoSegundos = document.getElementById("segundos").textContent;
+  var segundos = parseInt(tempoSegundos);
+  var tempoMinutos = document.getElementById("minutos").textContent;
+  var minutos = parseInt(tempoMinutos);
 
-  buttonReset.onclick = function reset() {
-    clearInterval(Interval);
-    segundos = "59";
-    minutos = "24";
+  segundos--;
+  if (segundos < 0) {
+    minutos--;
     appendMinutos.innerHTML = minutos;
+    segundos = 59;
     appendSegundos.innerHTML = segundos;
   }
 
-  function iniciarPomodoro () {
-    segundos--;
-    if (segundos < 0) {
-      minutos--;
-      appendMinutos.innerHTML = minutos;
-      segundos = 59;
-      appendSegundos.innerHTML = segundos;
-    }
-
-    if (segundos > 9) {
-      appendSegundos.innerHTML = segundos;
-    }
-    if (segundos <= 9) {
-      appendSegundos.innerHTML = "0" + segundos;
-    }
-
-    if (minutos <= 9) {
-      appendMinutos.innerHTML = "0" + minutos;
-    }
-
-    if (minutos > 9) {
-      appendMinutos.innerHTML = minutos;
-    }
-
-    if (minutos == 0 && segundos == 0) {
-      clearInterval(Interval);
-      segundos = "59";
-      minutos = "24";
-      appendMinutos.innerHTML = minutos;
-      appendSegundos.innerHTML = segundos;
-      borda[0].style.borderColor = "white";
-    }
+  if (segundos > 9) {
+    appendSegundos.innerHTML = segundos;
   }
+  if (segundos <= 9) {
+    appendSegundos.innerHTML = "0" + segundos;
+  }
+
+  if (minutos <= 9) {
+    appendMinutos.innerHTML = "0" + minutos;
+  }
+
+  if (minutos > 9) {
+    appendMinutos.innerHTML = minutos;
+  }
+
+  if (minutos == 0 && segundos == 0) {
+    clearInterval(Interval);
+    segundos = "00";
+    minutos = "00";
+    appendMinutos.innerHTML = minutos;
+    appendSegundos.innerHTML = segundos;
+    borda[0].style.borderColor = "white";
+  }
+
 }
