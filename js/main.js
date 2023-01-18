@@ -8,19 +8,21 @@ window.onload = function () {
   var buttonStart = document.getElementById('start');
   var buttonStop = document.getElementById('stop');
   var buttonReset = document.getElementById('reset');
-
+  var borda = document.getElementsByClassName("timer");
   var Interval;
 
+  
   buttonStart.onclick = function () { 
     clearInterval(Interval);
-    Interval = setInterval(iniciarPomodoro, 10);
+    Interval = setInterval(iniciarPomodoro, 5);
+    borda[0].style.borderColor = "red";
   }
 
   buttonStop.onclick = function () {
     clearInterval(Interval);
   }
 
-  buttonReset.onclick = function () {
+  buttonReset.onclick = function reset() {
     clearInterval(Interval);
     segundos = "59";
     minutos = "24";
@@ -43,8 +45,6 @@ window.onload = function () {
     if (segundos <= 9) {
       appendSegundos.innerHTML = "0" + segundos;
     }
-    
-    
 
     if (minutos <= 9) {
       appendMinutos.innerHTML = "0" + minutos;
@@ -55,9 +55,12 @@ window.onload = function () {
     }
 
     if (minutos == 0 && segundos == 0) {
-      var reser = setInterval(buttonReset);
-      var  fundo = document.getElementsByClassName("box").style.backgroundColor = green;
-      fundo
+      clearInterval(Interval);
+      segundos = "59";
+      minutos = "24";
+      appendMinutos.innerHTML = minutos;
+      appendSegundos.innerHTML = segundos;
+      borda[0].style.borderColor = "white";
     }
   }
 }
